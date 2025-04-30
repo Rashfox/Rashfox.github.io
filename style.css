@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(213, 213, 213);
+}
+
+header {
+    background: rgb(49, 106, 212);
+    color: white;
+    text-align: center;
+    padding: 1px;
+}
+
+nav ul.nav {
+    background: rgb(2, 64, 180);
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 50px;
+}
+
+.menu {
+    padding: 10px 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.menu:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8%;
+}
+
+.center {
+    background-color: rgb(95, 95, 95);
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    margin: 8% 8%;
+}
+
+.main, .sidebar {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 1px;
+    margin-top: -5%;
+}
