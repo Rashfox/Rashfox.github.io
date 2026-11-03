@@ -6,11 +6,11 @@
 
 const REPOSITORIES = [
     {
-        name: "NioBot (Rash Productions WhatsApp Bot)",
+        name: "NioBot",
         desc: "Bot WhatsApp utama buatan Rashfox dengan engine otomasi pesan, multimedia downloader, custom anime commands, dan fitur utility serba bisa.",
         lang: "Node.js / Baileys",
         langColor: "#339933",
-        stars: 5,
+        stars: 1,
         badgeType: "public",
         category: "bot",
         meme: "🤖 'Bot WhatsApp andalan sang creator: online terus tanpa ampun!'",
@@ -114,30 +114,6 @@ const REPOSITORIES = [
         linkText: "GitHub"
     },
     {
-        name: "config",
-        desc: "Kumpulan file konfigurasi server, network script, dan environment tools sysadmin.",
-        lang: "JavaScript / Shell",
-        langColor: "#f7df1e",
-        stars: 1,
-        badgeType: "public",
-        category: "sys-tools",
-        meme: "⚙️ 'Konfigurasi andalan para hacker Cilacap: jangan disentuh kalau mau server tetep hidup!'",
-        url: "https://github.com/Rashfox/config",
-        linkText: "GitHub"
-    },
-    {
-        name: "download",
-        desc: "Automated shell download scripts & helper commands untuk server Linux.",
-        lang: "Shell",
-        langColor: "#89e051",
-        stars: 1,
-        badgeType: "public",
-        category: "sys-tools",
-        meme: "📥 'Sekali pencet enter di CLI, semua dependensi server langsung aman terunduh.'",
-        url: "https://github.com/Rashfox/download",
-        linkText: "GitHub"
-    },
-    {
         name: "Rockyou",
         desc: "Wordlist repository & security analysis tools untuk audit kekuatan kata sandi pengguna.",
         lang: "Security / Wordlist",
@@ -149,18 +125,6 @@ const REPOSITORIES = [
         url: "https://github.com/Rashfox/Rockyou",
         linkText: "GitHub"
     },
-    {
-        name: "Rashfox.github.io",
-        desc: "Website portofolio utama bernuansa anime super kawaii yang sedang kamu jelajahi saat ini!",
-        lang: "HTML / CSS / JS",
-        langColor: "#ff6b9d",
-        stars: 1,
-        badgeType: "public",
-        category: "web",
-        meme: "✨ 'Ditenagai 100% waifu power, secangkir kopi hitam, dan cinta sejati!'",
-        url: "https://github.com/Rashfox/Rashfox.github.io",
-        linkText: "GitHub"
-    }
 ];
 
 // Anime Programmer Quotes

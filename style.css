@@ -518,6 +518,11 @@ h1, h2, h3, h4 {
     color: #fff;
 }
 
+.kaomoji {
+    display: inline-block;
+    white-space: nowrap;
+}
+
 .section-desc {
     color: var(--text-muted);
     font-size: 1rem;
@@ -1367,6 +1372,8 @@ h1, h2, h3, h4 {
 
     .hero-buttons .cute-btn {
         justify-content: center;
+        font-size: 0.9rem;
+        padding: 10px 16px;
     }
 
     .avatar-inner {
@@ -1385,7 +1392,7 @@ h1, h2, h3, h4 {
     }
 
     .section-title {
-        font-size: 1.55rem;
+        font-size: 1.32rem;
     }
 
     .sub-badge {
