@@ -1,50 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>rash pro</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rashfox • Portfolio ✨</title>
+    <meta name="description" content="Portofolio anime super kawaii & memeable milik Rizki Fajar Purnomo (Rashfox) - Network Engineer & Full-Stack Developer">
+    <link rel="icon" href="" type="image/svg+xml">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Kiwi+Maru:wght@400;500&family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome & DevIcons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Rash Productions</h1>
+    <!-- Floating Sakura Petals Container -->
+    <div id="sakura-container" class="sakura-container" aria-hidden="true"></div>
+
+    <!-- Background Anime Grid & Glow FX -->
+    <div class="kawaii-bg-glow" aria-hidden="true"></div>
+    <div class="dot-pattern" aria-hidden="true"></div>
+
+    <!-- Navbar -->
+    <header class="navbar-wrapper">
+        <nav class="navbar glass-card">
+            <a href="#hero" class="nav-logo">
+                <span class="logo-emoji">🦊✨</span>
+                <span class="logo-text">Rash<span class="text-pink">fox</span></span>
+                <span class="badge-chan">chan~</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#about" class="nav-item">Tentang</a>
+                <a href="#skills" class="nav-item">Kekuatan</a>
+                <a href="#projects" class="nav-item">Projek Senpai</a>
+                <a href="#meme-corner" class="nav-item">Meme Zone</a>
+                <a href="#contact" class="nav-item">Kontak</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="theme-sound-btn" class="cute-btn icon-btn" title="Ngeong / Sound Effect!">
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+                <a href="https://github.com/Rashfox" target="_blank" rel="noopener noreferrer" class="cute-btn btn-primary">
+                    <i class="fa-brands fa-github"></i> GitHub
+                </a>
+            </div>
+        </nav>
     </header>
 
-    <nav>
-        <ul class="nav">
-            <li class="menu menu1">Home</li>
-            <li class="menu">Tentang</li>
-            <li class="menu">Layanan</li>
-            <li class="menu menu4">Kontak</li>
-        </ul>
-    </nav>
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-badge wobble">
+                <span>🌟 Level 99 Full-Stack & Network Wizard! (｡•̀ᴗ-)✧</span>
+            </div>
 
-    <section class="welcome">
-        <h2 class="center">Selamat Datang di Rash Productions</h2>
-    </section>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="speech-bubble bounce-slow">
+                        <span>Yamete kudasai bug-san! Jangan error dong pliss~ (╥﹏╥)</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Halo Minna-san! Aku <br>
+                        <span class="gradient-text glow-text">Rizki Fajar Purnomo</span>
+                        <span class="aka-tag">(Rashfox)</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        ⚡ <strong>Network Administrator</strong> & <strong>Full-Stack Developer</strong> asal Cilacap, Indonesia. 
+                        Penggemar kopi hitam, Linux distro-hopper, pencipta bot WhatsApp, dan penakluk router MikroTik & Cisco!
+                    </p>
 
-    <main class="content">
-        <article class="main">
-            <h2>Artikel Utama</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                Temporibus corporis asperiores, voluptatum consectetur 
-                laboriosam saepe eligendi voluptate quibusdam distinctio 
-                perferendis quia, cum alias dolores fuga earum sapiente, 
-                nesciunt vitae enim.</p>
-        </article>
+                    <div class="hero-stats">
+                        <div class="stat-pill">
+                            <span class="stat-num">15</span>
+                            <span class="stat-lbl">Projek Kontribusi Aktif</span>
+                        </div>
+                        <div class="stat-pill">
+                            <span class="stat-num">100%</span>
+                            <span class="stat-lbl">Kawaii Energy 🌸</span>
+                        </div>
+                        <div class="stat-pill">
+                            <span class="stat-num">0%</span>
+                            <span class="stat-lbl">Tidur Pas Deadline 💤</span>
+                        </div>
+                    </div>
 
-        <aside class="sidebar">
-            <h2>Sidebar</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                Vero magnam quis ex quibusdam autem blanditiis esse quisquam, 
-                facilis consectetur totam, iusto labore iste suscipit animi 
-                libero aut explicabo nam et.</p>
-        </aside>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="cute-btn btn-primary pulse-btn">
+                            <i class="fa-solid fa-folder-open"></i> Lihat Semua Projek!
+                        </a>
+                        <button id="meme-modal-trigger" class="cute-btn btn-secondary">
+                            <i class="fa-solid fa-face-grin-squint-tears"></i> Pencet Buat Meme (Jangan!)
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hero-avatar-wrapper">
+                    <div class="avatar-aura"></div>
+                    <div class="avatar-card glass-card float-anim">
+                        <div class="avatar-inner">
+                            <img src="https://avatars.githubusercontent.com/u/113658888?v=4" alt="Rashfox Avatar" class="avatar-img" id="main-avatar">
+                            <div class="cat-ears" aria-hidden="true">
+                                <span class="ear ear-left"></span>
+                                <span class="ear ear-right"></span>
+                            </div>
+                        </div>
+                        <div class="avatar-tag">
+                            <span class="status-dot"></span>
+                            <span>Online • Siap Kompilasi Masa Depan ✨</span>
+                        </div>
+                        <div class="interactive-reaction" id="avatar-dialogue">
+                            "Rawr! Klik aku buat nyapa dong~ 🐾"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="section about-section">
+            <div class="section-title-wrap">
+                <span class="sub-badge">⛩️ Lore Karakter</span>
+                <h2 class="section-title">Siapa Sih Rashfox Itu? (๑•̀ㅂ•́)و</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card glass-card">
+                    <div class="card-icon">💻</div>
+                    <h3>Mahasiswa Informatika & Dev</h3>
+                    <p>
+                        Fokus mendalami dunia <strong>Network Administration</strong>, <strong>Linux System Engineering</strong>, 
+                        serta software development multi-platform (Web Laravel/CI4, Blazor C#, Flutter, hingga Bot Automation).
+                    </p>
+                    <div class="fun-fact">
+                        <i class="fa-solid fa-quote-left"></i>
+                        <em>"Kodingan jalan di localhost? Beres! Pas deploy di server? Saatnya berserah diri..."</em>
+                    </div>
+                </div>
+
+                <div class="about-card glass-card">
+                    <div class="card-icon">🌐</div>
+                    <h3>Network & SysAdmin Ninja</h3>
+                    <p>
+                        Bisa mikrotik routing, konfigurasi switch Cisco, pasang firewall, containerizing pake Docker, 
+                        sampai tunneling Cloudflare biar website lokal tembus dunia luar!
+                    </p>
+                    <div class="fun-fact">
+                        <i class="fa-solid fa-quote-left"></i>
+                        <em>"Ping 999ms adalah musuh sejati. Kabel LAN putus bikin panik sekantor."</em>
+                    </div>
+                </div>
+
+                <div class="about-card glass-card">
+                    <div class="card-icon">☕</div>
+                    <h3>Spesifikasi Gamer & Wibu</h3>
+                    <p>
+                        Suka ngulik AI self-hosted, server Minecraft Bedrock, bot WhatsApp otomatis, 
+                        sambil maraton anime dan ditemani secangkir kopi sachet penangkal kantuk.
+                    </p>
+                    <div class="fun-fact">
+                        <i class="fa-solid fa-quote-left"></i>
+                        <em>"Status: Masih percaya kalau bug itu fitur tersembunyi yang belum sempat didokumentasikan."</em>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section skills-section">
+            <div class="section-title-wrap">
+                <span class="sub-badge">⚔️ Senjata & Grimoire</span>
+                <h2 class="section-title">Tech Stack & Skill Arsenal 🪄</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="skills-container">
+                <!-- Category 1 -->
+                <div class="skill-group glass-card">
+                    <div class="skill-group-header">
+                        <span class="group-icon">📡</span>
+                        <h3>Networking & Linux Systems</h3>
+                    </div>
+                    <div class="badge-list">
+                        <span class="tech-badge"><i class="fa-solid fa-network-wired"></i> MikroTik RouterOS</span>
+                        <span class="tech-badge"><i class="fa-solid fa-server"></i> Cisco Systems</span>
+                        <span class="tech-badge"><i class="fa-brands fa-linux"></i> Linux (Debian / Arch)</span>
+                        <span class="tech-badge"><i class="fa-brands fa-docker"></i> Docker Containers</span>
+                        <span class="tech-badge"><i class="fa-brands fa-cloudflare"></i> Cloudflare Tunnel</span>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="skill-group glass-card">
+                    <div class="skill-group-header">
+                        <span class="group-icon">🚀</span>
+                        <h3>Backend & Web Development</h3>
+                    </div>
+                    <div class="badge-list">
+                        <span class="tech-badge"><i class="fa-brands fa-php"></i> PHP 8.x</span>
+                        <span class="tech-badge"><i class="fa-brands fa-laravel"></i> Laravel Framework</span>
+                        <span class="tech-badge"><i class="fa-solid fa-fire"></i> CodeIgniter 4</span>
+                        <span class="tech-badge"><i class="fa-brands fa-node-js"></i> Node.js & Baileys</span>
+                        <span class="tech-badge"><i class="fa-brands fa-js"></i> Modern JavaScript</span>
+                        <span class="tech-badge"><i class="fa-solid fa-database"></i> MySQL Database</span>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="skill-group glass-card">
+                    <div class="skill-group-header">
+                        <span class="group-icon">📱</span>
+                        <h3>Desktop, Mobile & AI</h3>
+                    </div>
+                    <div class="badge-list">
+                        <span class="tech-badge"><i class="fa-solid fa-code"></i> C# / .NET Core</span>
+                        <span class="tech-badge"><i class="fa-solid fa-window-maximize"></i> Blazor & WinForms</span>
+                        <span class="tech-badge"><i class="fa-solid fa-robot"></i> Self-Hosted AI (Nio)</span>
+                        <span class="tech-badge"><i class="fa-brands fa-flutter"></i> Flutter & Dart</span>
+                        <span class="tech-badge"><i class="fa-solid fa-cube"></i> Minecraft Bedrock Host</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (GitHub Repos) -->
+        <section id="projects" class="section projects-section">
+            <div class="section-title-wrap">
+                <span class="sub-badge">📂 Karya Nyata</span>
+                <h2 class="section-title">Project Kontribusi @Rashfox 🐾</h2>
+                <p class="section-desc">Koleksi repository di mana kamu menjadi Author utama & Active Contributor!</p>
+                <div class="title-underline"></div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">Semua Projek Buatanku 🌟</button>
+                <button class="filter-btn" data-filter="web">Web & Laravel 🌐</button>
+                <button class="filter-btn" data-filter="bot">Bot WhatsApp (RPRO) 🤖</button>
+                <button class="filter-btn" data-filter="ai-desktop">AI & Desktop 🧠</button>
+                <button class="filter-btn" data-filter="sys-tools">SysAdmin & Tools 🛠️</button>
+            </div>
+
+            <div class="projects-grid" id="projects-grid">
+                <!-- Repos cards populated dynamically with anime meme spice -->
+            </div>
+        </section>
+
+        <!-- Meme Corner & Anime Waifu Sanctuary -->
+        <section id="meme-corner" class="section meme-section">
+            <div class="section-title-wrap">
+                <span class="sub-badge">🍜 Area Santai Wibu</span>
+                <h2 class="section-title">Voice Anime & Meme Soundboard (≧◡≦)</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="meme-container glass-card">
+                <div class="meme-quote-box">
+                    <div class="quote-header">
+                        <span class="quote-avatar">🐱</span>
+                        <strong>Rashfox Wisdom Generator™:</strong>
+                    </div>
+                    <p id="wisdom-text" class="wisdom-text">"Kalo kodinganmu error, jangan nangis. Peluk bantal waifu dulu, baru git reset --hard."</p>
+                    <button id="new-wisdom-btn" class="cute-btn btn-secondary">
+                        <i class="fa-solid fa-dice"></i> Minta Kata Mutiara Lain!
+                    </button>
+                </div>
+
+                <div class="interactive-soundboard">
+                    <h4>Voice Line Anime Asli (Klik buat dengerin suara seiyuu!) 🎵</h4>
+                    <div class="sound-grid">
+                        <button class="sound-btn" data-sfx="ara">💋 "Ara Ara~" (Shinobu)</button>
+                        <button class="sound-btn" data-sfx="yamete">💢 "Yamete Kudasai!"</button>
+                        <button class="sound-btn" data-sfx="nani">⚡ "Nani?!" (Omae Wa Mou)</button>
+                        <button class="sound-btn" data-sfx="ganbare">✨ "Ganbare Senpai~" (Nagatoro)</button>
+                        <button class="sound-btn" data-sfx="uwu">🌸 "Uwu~"</button>
+                        <button class="sound-btn" data-sfx="konnichiwa">🍡 "Konnichiwa~" (Shinobu)</button>
+                        <button class="sound-btn" data-sfx="itai">💫 "Itai! (Aduh~)" (Rikka)</button>
+                        <button class="sound-btn" data-sfx="ultra">🔥 "Ultra Instinct Theme"</button>
+                    </div>
+                    <div class="sfx-status" id="sfx-status">Pencet tombol suara di atas untuk play audio asli! 🐾</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="section-title-wrap">
+                <span class="sub-badge">💌 Hubungi Senpai</span>
+                <h2 class="section-title">Ayo Bikin Project Bareng! ☕✨</h2>
+                <p class="section-desc">Punya tawaran proyek, butuh setup jaringan, atau sekadar mabar? Hubungi aku!</p>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="contact-box glass-card">
+                <div class="contact-links">
+                    <a href="mailto:rizkifajarpurnomo@outlook.com" class="contact-pill email-pill">
+                        <div class="pill-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="pill-text">
+                            <span class="pill-label">Surel (Email)</span>
+                            <span class="pill-val">rizkifajarpurnomo@outlook.com</span>
+                        </div>
+                    </a>
+
+                    <a href="https://linkedin.com/in/rizki-fajar-purnomo" target="_blank" rel="noopener noreferrer" class="contact-pill linkedin-pill">
+                        <div class="pill-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                        <div class="pill-text">
+                            <span class="pill-label">LinkedIn</span>
+                            <span class="pill-val">Rizki Fajar Purnomo</span>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/Rashfox" target="_blank" rel="noopener noreferrer" class="contact-pill github-pill">
+                        <div class="pill-icon"><i class="fa-brands fa-github"></i></div>
+                        <div class="pill-text">
+                            <span class="pill-label">GitHub Universe</span>
+                            <span class="pill-val">github.com/Rashfox</span>
+                        </div>
+                    </a>
+
+                    <div class="contact-pill loc-pill">
+                        <div class="pill-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="pill-text">
+                            <span class="pill-label">Basecamp</span>
+                            <span class="pill-val">Cilacap, Jawa Tengah, ID 🇮🇩</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-contact-action">
+                    <p>Mau langsung kirim salam atau tanya rate projek?</p>
+                    <a href="mailto:rizkifajarpurnomo@outlook.com?subject=Halo%20Rashfox%20Senpai!%20Mau%20Nanya%20Projek" class="cute-btn btn-primary big-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Kirim Email ke Rizki Fajar 🚀
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Rash Productions. All Rights Reserved</p>
+    <!-- Meme Modal Popup -->
+    <div id="meme-modal" class="modal-backdrop">
+        <div class="modal-box glass-card bounce-modal">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+            <div class="modal-body">
+                <span class="modal-emoji">🤣✨</span>
+                <h3>Wkwkwk Malah Dipencet Beneran!</h3>
+                <p id="meme-modal-text">"Ngakak brutal dulu sebelum ngadepin deadline dan bug production! (≧▽≦)"</p>
+                <div class="modal-cat-gif">
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXlldWg4aW5pM2ZlbXdwZTR4cTJ0N3NvZ3M3dXE4OGdyZDc1MDJzZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/2g6sCTsSoVuSfSxK4W/giphy.gif" alt="Anime Laugh GIF" class="meme-gif">
+                </div>
+                <div id="meme-anime-source" class="meme-source-tag">Loading waifu ngakak...</div>
+                <button class="cute-btn btn-primary" id="modal-ok-btn">Wkwkwk Oke Tutup! 🐾</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cute Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-meme">
+                Made with 💖, Indomie kuah kari ayam, dan 100% waifu-grade anime energy by <strong>Rashfox</strong>.
+            </p>
+            <p class="footer-copy">
+                &copy; <span id="cur-year">2026</span> Rizki Fajar Purnomo (Rashfox). All bug rights reserved.
+            </p>
+            <p class="back-to-top">
+                <a href="#hero" class="totop-btn">Kembali ke Atas 🐾 ↑</a>
+            </p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
