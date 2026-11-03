@@ -406,7 +406,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 7. Meme Modal Triggers & Dynamic nekos.best Laugh GIF (Fetch First, Then Open)
+    // 7. Meme Modal Triggers with Smart 5-Item Queue Cache & Preloader
     const memeModal = document.getElementById('meme-modal');
     const memeModalTrigger = document.getElementById('meme-modal-trigger');
     const modalCloseBtn = document.getElementById('modal-close-btn');
@@ -414,55 +414,95 @@ document.addEventListener('DOMContentLoaded', () => {
     const memeGifImg = document.querySelector('.meme-gif');
     const memeAnimeSource = document.getElementById('meme-anime-source');
 
-    let isFetchingMeme = false;
+    const FALLBACK_WAITING_GIF = "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXlldWg4aW5pM2ZlbXdwZTR4cTJ0N3NvZ3M3dXE4OGdyZDc1MDJzZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/2g6sCTsSoVuSfSxK4W/giphy.gif";
+    
+    // In-memory GIF cache queue (maksimal 5 item)
+    let memeCache = [];
+    let isRefilling = false;
 
-    async function triggerMemeAction() {
-        if (isFetchingMeme) return;
-        isFetchingMeme = true;
-
-        // Feedback tombol pas lagi fetch
-        const originalBtnHTML = memeModalTrigger ? memeModalTrigger.innerHTML : '';
-        if (memeModalTrigger) {
-            memeModalTrigger.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Lagi Nyari Waifu Ngakak...`;
-            memeModalTrigger.style.pointerEvents = 'none';
-        }
-
+    // Fungsi fetch batch 5 GIF saat page load
+    async function initMemeCache() {
         try {
-            // Fetch API nekos.best
-            const res = await fetch('https://nekos.best/api/v2/laugh');
+            const res = await fetch('https://nekos.best/api/v2/laugh?amount=5');
             const data = await res.json();
-
             if (data && data.results && data.results.length > 0) {
-                const item = data.results[0];
-
-                // Preload image GIF ke memory browser agar instan tanpa blank
-                const preloader = new Image();
-                preloader.src = item.url;
-                await new Promise((resolve) => {
-                    preloader.onload = resolve;
-                    preloader.onerror = resolve; // fallback tetap lanjut
-                    setTimeout(resolve, 1500); // timeout cepat max 1.5s biar gak nunggu lama
-                });
-
-                if (memeGifImg) memeGifImg.src = item.url;
-                if (memeAnimeSource && item.anime_name) {
-                    memeAnimeSource.textContent = `Anime: ${item.anime_name} 🎭`;
+                memeCache = data.results.map(item => ({
+                    url: item.url,
+                    anime_name: item.anime_name
+                }));
+                // Preload image pertama ke browser cache
+                if (memeCache.length > 0) {
+                    const img = new Image();
+                    img.src = memeCache[0].url;
                 }
             }
-        } catch (e) {
-            console.log("Gagal fetch nekos.best, pake fallback default:", e);
-        } finally {
-            // Reset status tombol
-            if (memeModalTrigger) {
-                memeModalTrigger.innerHTML = originalBtnHTML;
-                memeModalTrigger.style.pointerEvents = 'auto';
-            }
-            isFetchingMeme = false;
+        } catch (err) {
+            console.log("Init cache nekos.best gagal, fallback ready:", err);
+        }
+    }
 
-            // Buka modal & putar suara ketawa ngakak mengejek secara bersamaan!
-            if (memeModal) {
-                memeModal.classList.add('active');
-                sfxEngine.play('mocking-laugh');
+    // Fungsi refill background: hapus 1, ambil 1 baru agar kuota tetap 5
+    async function replenishOneMeme() {
+        if (isRefilling) return;
+        isRefilling = true;
+        try {
+            const res = await fetch('https://nekos.best/api/v2/laugh');
+            const data = await res.json();
+            if (data && data.results && data.results.length > 0) {
+                const newItem = {
+                    url: data.results[0].url,
+                    anime_name: data.results[0].anime_name
+                };
+                memeCache.push(newItem);
+                // Preload item baru di background
+                const img = new Image();
+                img.src = newItem.url;
+            }
+        } catch (e) {
+            console.log("Replenish single meme error:", e);
+        } finally {
+            isRefilling = false;
+        }
+    }
+
+    // Handler klik tombol meme
+    async function triggerMemeAction() {
+        let currentItem = null;
+
+        if (memeCache.length > 0) {
+            // Ambil 1 terdepan (FIFO)
+            currentItem = memeCache.shift();
+            // Ambil 1 baru di background biar isi cache tetap berputar 5 item
+            replenishOneMeme();
+        }
+
+        if (currentItem) {
+            // Sudah ada di cache! Langsung tampilkan seketika tanpa nunggu fetch
+            if (memeGifImg) memeGifImg.src = currentItem.url;
+            if (memeAnimeSource) {
+                memeAnimeSource.textContent = `Anime: ${currentItem.anime_name || 'Anime Laugh'} 🎭`;
+            }
+            if (memeModal) memeModal.classList.add('active');
+            sfxEngine.play('mocking-laugh');
+        } else {
+            // Jika cache belum selesai terisi (misal baru buka langsung klik)
+            // Tampilkan fallback gif waiting yang diminta user
+            if (memeGifImg) memeGifImg.src = FALLBACK_WAITING_GIF;
+            if (memeAnimeSource) memeAnimeSource.textContent = "Lagi nunggu waifu ketawa ngakak... 🐱⏳";
+            if (memeModal) memeModal.classList.add('active');
+            sfxEngine.play('mocking-laugh');
+
+            // Coba fetch darurat 1 item
+            try {
+                const res = await fetch('https://nekos.best/api/v2/laugh');
+                const data = await res.json();
+                if (data && data.results && data.results.length > 0) {
+                    const freshItem = data.results[0];
+                    if (memeGifImg) memeGifImg.src = freshItem.url;
+                    if (memeAnimeSource) memeAnimeSource.textContent = `Anime: ${freshItem.anime_name} 🎭`;
+                }
+            } catch (err) {
+                console.log("Emergency fetch error:", err);
             }
         }
     }
@@ -482,6 +522,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === memeModal) closeModal();
         });
     }
+
+    // Panggil init cache langsung saat script berjalan (page reload/refresh)
+    initMemeCache();
 
     // 8. Sakura Rain Loop (subtle)
     setInterval(createSakuraPetal, 450);
