@@ -30,7 +30,7 @@ const REPOSITORIES = [
         linkText: "GitHub"
     },
     {
-        name: "Nio-Chat-AI",
+        name: "Nio Chat AI",
         desc: "Nio: Personal, self-hosted AI chat environment buatan sendiri. Dibangun penuh pakai .NET & Blazor Razor components untuk chatting AI lokal tanpa cloud.",
         lang: "C# / Blazor",
         langColor: "#239120",
@@ -54,7 +54,7 @@ const REPOSITORIES = [
         linkText: "GitHub"
     },
     {
-        name: "Web-Night-Raid",
+        name: "Web NightRaid",
         desc: "Website anime project bernuansa Night Raid (Akame ga Kill) dengan tata letak visual elegan buatan tangan sendiri.",
         lang: "HTML / CSS",
         langColor: "#e34f26",
@@ -87,18 +87,6 @@ const REPOSITORIES = [
         category: "web",
         meme: "✨ 'Karya tulus mahasiswa informatika untuk mempermudah hidup.'",
         url: "https://github.com/Rashfox/TMI",
-        linkText: "GitHub"
-    },
-    {
-        name: "praktikum-pemrograman-web1",
-        desc: "Kumpulan tugas, modul dan praktikum pemrograman web dari dasar (HTML5, styling CSS, JavaScript logic).",
-        lang: "HTML / CSS / JS",
-        langColor: "#e34f26",
-        stars: 1,
-        badgeType: "public",
-        category: "web",
-        meme: "🍼 'Langkah awal perjalanan sang web developer sebelum menguasai framework.'",
-        url: "https://github.com/Rashfox/praktikum-pemrograman-web1",
         linkText: "GitHub"
     },
     {
