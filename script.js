@@ -6,7 +6,7 @@
 
 const REPOSITORIES = [
     {
-        name: "RPRO (Rash Productions WhatsApp Bot)",
+        name: "NioBot (Rash Productions WhatsApp Bot)",
         desc: "Bot WhatsApp utama buatan Rashfox dengan engine otomasi pesan, multimedia downloader, custom anime commands, dan fitur utility serba bisa.",
         lang: "Node.js / Baileys",
         langColor: "#339933",
@@ -14,8 +14,8 @@ const REPOSITORIES = [
         badgeType: "private",
         category: "bot",
         meme: "🤖 'Bot WhatsApp andalan sang creator: online terus tanpa ampun!'",
-        url: "#contact",
-        linkText: "Request Demo / Info"
+        url: "https://github.com/Rashfox/NioBot",
+        linkText: "GitHub"
     },
     {
         name: "almustaqim",
