@@ -523,6 +523,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // 7b. Mobile Hamburger Drawer 🍔
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileDrawer = document.getElementById('mobile-drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerCloseBtn = document.getElementById('drawer-close-btn');
+    const drawerLinks = document.querySelectorAll('.drawer-item');
+
+    function openDrawer() {
+        if (!mobileDrawer || !drawerOverlay) return;
+        mobileDrawer.classList.add('open');
+        drawerOverlay.classList.add('active');
+        if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+        if (!mobileDrawer || !drawerOverlay) return;
+        mobileDrawer.classList.remove('open');
+        drawerOverlay.classList.remove('active');
+        if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    if (hamburgerBtn) hamburgerBtn.addEventListener('click', openDrawer);
+    if (drawerCloseBtn) drawerCloseBtn.addEventListener('click', closeDrawer);
+    if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
+    drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+    // Close drawer on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeDrawer();
+    });
+
     // Panggil init cache langsung saat script berjalan (page reload/refresh)
     initMemeCache();
 
