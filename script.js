@@ -14,8 +14,8 @@ const REPOSITORIES = [
         badgeType: "public",
         category: "bot",
         meme: "🤖 'Bot WhatsApp andalan sang creator: online terus tanpa ampun!'",
-        url: "https://github.com/Rashfox/NioBot",
-        linkText: "GitHub"
+        url: "https://rashfox.github.io/NioBot",
+        linkText: "Web"
     },
     {
         name: "almustaqim",
